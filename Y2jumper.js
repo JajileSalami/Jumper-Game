@@ -1,6 +1,6 @@
 function jumper() {
-  this.x = 0;
-  this.y = 0;
+  this.x = w/2;
+  this.y = h/2;
   this.gravity = 0.5; // the force of gravity
   this.lift = -10; // the opposing force of gravity when I jump
   this.velocity = 0; // speed of gravity force
