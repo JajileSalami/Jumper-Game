@@ -2,6 +2,7 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
     <script src="Y2jumper.js"></script>
+    <script src="Y2barrier.js"></script>
     
     <style>
       * {
@@ -16,38 +17,36 @@
     <script>
       var w = window.innerWidth;
       var h = window.innerHeight;
-      var playerX = w/2;
-      var playerY = h/2;
-      
-      var jumper = new jumper();  //declare object
+      var jumper =  new jumper(); //declare function as object
+      var barrier = new barrier();
       
       function setup() {
         createCanvas(w,h);
         
       }
-      
       function draw() {
-        clear(); //clear canvas every time
-        jumper.show(); //load show
-        jumper.update(); //load update
-        if ((keyIsDown(37)) && (jumper.x > 25)) {
-          jumper.x -=10;
+        //console.log(jumper.x, jumper.y;
+        clear();
+        jumper.show();
+        barrier.show();
+        jumper.update();
+        barrier.update();
+        //character moves left
+        if((keyIsDown(37)) && (jumper.x > 25)) {
+          jumper.x -= 10;
         }
-        if ((keyIsDown(39)) && (jumper.x + 29 < w)) { //right
+        //character moves right
+        if((keyIsDown(39)) && (jumper.x < w-25)) {
           jumper.x += 10;
         }
       }
-      
+       
       function keyPressed() {
-        if (keyCode === 32) {
+        // character jumps
+        if(keyCode === 32) {
           jumper.up();
         }
       }
-      
-      
-      
-      
-      
     </script>
   </body>
 </html>
